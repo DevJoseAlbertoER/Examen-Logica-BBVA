@@ -76,4 +76,30 @@ public class BankQueueSimulator {
         }
         return track;
     }
+
+    /**
+     * Método principal para ejecutar y visualizar el comportamiento en consola.
+     */
+    public static void main(String[] args) {
+        BankQueueSimulator simulator = new BankQueueSimulator();
+        
+        // Ejemplo de prueba manual
+        int[] fila = {5, 1, 1, 1};
+        int posicionDeAlex = 0;
+
+        System.out.println("Iniciando simulación del banco...");
+        System.out.println("Fila original: [5, 1, 1, 1]. Alex está en la posición 0.");
+        
+        int tiempoTotal = simulator.timeRequiredToBuy(fila, posicionDeAlex);
+        
+        System.out.println("\n-------------------------------------------");
+        System.out.println("El tiempo total que tardó Alex fue de: " + tiempoTotal + " unidades.");
+        System.out.println("-------------------------------------------\n");
+
+        System.out.println("Historial de movimientos:");
+        List<String> historial = simulator.generateExecutionTrack(fila, posicionDeAlex);
+        for (String movimiento : historial) {
+            System.out.println(movimiento);
+        }
+    }
 }
